@@ -20,15 +20,15 @@
       </a>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{ route('produk.index') }}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Active Page</p>
+            <p>Produk</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{ route('kategori.index') }}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Inactive Page</p>
+            <p>Kategori</p>
           </a>
         </li>
       </ul>
@@ -45,13 +45,24 @@
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Active Page</p>
+            <p>Transaksi Baru</p>
           </a>
         </li>
+      </ul>
+    </li>
+    <li class="nav-item has-treeview">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-folder"></i>
+        <p>
+          Data
+          <i class="right fas fa-angle-left"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{ route('customer.index') }}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Inactive Page</p>
+            <p>Customer</p>
           </a>
         </li>
       </ul>

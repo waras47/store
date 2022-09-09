@@ -2,10 +2,10 @@
 @section('content')
 <div class="container-fluid">
   <div class="row">
-    <div class="col col-lg-4 col-md-4">
+    <div class="col col-lg-6 col-md-6">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Detail Produk</h3>
+          <h3 class="card-title">Form Edit Produk</h3>
           <div class="card-tools">
             <a href="{{ route('produk.index') }}" class="btn btn-sm btn-danger">
               Tutup
@@ -13,109 +13,24 @@
           </div>
         </div>
         <div class="card-body">
-          <div class="table-responsive">
-            <table class="table">
-              <tr>
-                <td>Kode Produk</td>
-                <td>
-                  PRO-12
-                </td>
-              </tr>
-              <tr>
-                <td>Nama Produk</td>
-                <td>
-                  Baju Anak
-                </td>
-              </tr>
-              <tr>
-                <td>Qty</td>
-                <td>
-                  12 pcs
-                </td>
-              </tr>
-              <tr>
-                <td>Harga</td>
-                <td>
-                  Rp. 15.0000
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col col-lg-8 col-md-8">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Foto Produk</h3>
-        </div>
-        <div class="card-body">
           <form action="#">
-            <div class="row">
-              <div class="col">
-                <div class="form-group">
-                  <input type="file" name="image" id="image">
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-group">
-                  <button type="submit" class="btn btn-primary">Upload</button>
-                </div>
-              </div>
+            <div class="form-group">
+              <label for="nama_produk">Nama Produk</label>
+              <input type="text" name="nama_produk" id="nama_produk" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="slug_produk">Slug Produk</label>
+              <input type="text" name="slug_produk" id="slug_produk" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="deskripsi">Deskripsi</label>
+              <textarea name="deskripsi" id="deskripsi" cols="30" rows="5" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Update</button>
+              <button type="reset" class="btn btn-warning">Reset</button>
             </div>
           </form>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-3 mb-2">
-              <img src="{{ asset('images/slide1.jpg') }}" alt="image" class="img-thumbnail mb-2">
-              <button class="btn-sm btn-danger btn">
-                Delete
-              </button>
-            </div>
-
-            <div class="col-md-3 mb-2">
-              <img src="{{ asset('images/slide1.jpg') }}" alt="image" class="img-thumbnail mb-2">
-              <button class="btn-sm btn-danger btn">
-                Delete
-              </button>
-            </div>
-
-            <div class="col-md-3 mb-2">
-              <img src="{{ asset('images/slide1.jpg') }}" alt="image" class="img-thumbnail mb-2">
-              <button class="btn-sm btn-danger btn">
-                Delete
-              </button>
-            </div>
-
-            <div class="col-md-3 mb-2">
-              <img src="{{ asset('images/slide1.jpg') }}" alt="image" class="img-thumbnail mb-2">
-              <button class="btn-sm btn-danger btn">
-                Delete
-              </button>
-            </div>
-
-            <div class="col-md-3 mb-2">
-              <img src="{{ asset('images/slide1.jpg') }}" alt="image" class="img-thumbnail mb-2">
-              <button class="btn-sm btn-danger btn">
-                Delete
-              </button>
-            </div>
-
-            <div class="col-md-3 mb-2">
-              <img src="{{ asset('images/slide1.jpg') }}" alt="image" class="img-thumbnail mb-2">
-              <button class="btn-sm btn-danger btn">
-                Delete
-              </button>
-            </div>
-
-            <div class="col-md-3 mb-2">
-              <img src="{{ asset('images/slide1.jpg') }}" alt="image" class="img-thumbnail mb-2">
-              <button class="btn-sm btn-danger btn">
-                Delete
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
