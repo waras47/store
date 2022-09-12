@@ -11,6 +11,7 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -25,7 +26,7 @@ Route::get('/kategori/{slug}', 'HomepageController@produkperkategori');
 Route::get('/produk', 'HomepageController@produk');
 Route::get('/produk/{slug}', 'HomepageController@produkdetail');
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
   Route::get('/', 'DashboardController@index');
   // route kategori
   Route::resource('kategori', 'KategoriController');
@@ -33,4 +34,18 @@ Route::group(['prefix' => 'admin'], function() {
   Route::resource('produk', 'ProdukController');
 
   Route::resource('customer', 'CustomerController');
+
+  Route::resource('transaksi', 'TransaksiController');
+
+  Route::get('profil', 'UserController@index');
+  // setting profil
+  Route::get('setting', 'UserController@setting');
+
+  // form laporan
+  Route::get('laporan', 'LaporanController@index');
+  // proses laporan
+  Route::get('proseslaporan', 'LaporanController@proses');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
