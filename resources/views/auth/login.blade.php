@@ -24,7 +24,7 @@
                         </div>
                     @endif
                     <form method="POST" action="{{ route('login') }}">
-                        {{csrf_field()}}
+                    {{csrf_field()}}
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="text" name="email" id="email" required class="form-control">
