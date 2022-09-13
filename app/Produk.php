@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Produk extends Model
 {
-    
     protected $table = 'produk';
     protected $fillable = [
         'kategori_id',
@@ -28,5 +27,9 @@ class Produk extends Model
 
     public function user() {
         return $this->belongsTo('App\User', 'user_id');
+    }
+
+    public function images() {
+        return $this->hasMany('App\ProdukImage', 'produk_id');
     }
 }

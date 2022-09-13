@@ -1,5 +1,5 @@
 <nav class="mt-2">
-  <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+  <div class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
     <!-- Add icons to the links using the .nav-icon class
           with font-awesome or any other icon font library -->
     <li class="nav-item">
@@ -18,7 +18,7 @@
           <i class="right fas fa-angle-left"></i>
         </p>
       </a>
-      <ul class="nav nav-treeview">
+   
         <li class="nav-item">
           <a href="{{ route('produk.index') }}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
@@ -31,7 +31,7 @@
             <p>Kategori</p>
           </a>
         </li>
-      </ul>
+   
     </li>
     <li class="nav-item has-treeview">
       <a href="#" class="nav-link">
@@ -41,15 +41,14 @@
           <i class="right fas fa-angle-left"></i>
         </p>
       </a>
-      <ul class="nav nav-treeview">
         <li class="nav-item">
           <a href="{{ route('transaksi.index') }}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Data Transaksi</p>
           </a>
         </li>
-      </ul>
-    </li>
+
+    </li>      
     <li class="nav-item has-treeview">
       <a href="#" class="nav-link">
         <i class="nav-icon fas fa-folder"></i>
@@ -58,14 +57,14 @@
           <i class="right fas fa-angle-left"></i>
         </p>
       </a>
-      <ul class="nav nav-treeview">
+  
         <li class="nav-item">
           <a href="{{ route('customer.index') }}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Customer</p>
           </a>
         </li>
-      </ul>
+ 
     </li>
     <li class="nav-item has-treeview">
       <a href="#" class="nav-link">
@@ -75,14 +74,14 @@
           <i class="right fas fa-angle-left"></i>
         </p>
       </a>
-      <ul class="nav nav-treeview">
+   
         <li class="nav-item">
           <a href="{{ URL::to('admin/laporan') }}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Penjualan</p>
           </a>
         </li>
-      </ul>
+
     </li>
     <li class="nav-item">
       <a href="{{ URL::to('admin/profil') }}" class="nav-link">
@@ -92,6 +91,35 @@
         </p>
       </a>
     </li>
+    <li class="nav-item has-treeview">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-cogs"></i>
+        <p>
+          Setting
+          <i class="right fas fa-angle-left"></i>
+        </p>
+      </a>
+  
+        <li class="nav-item">
+          <a href="{{ route('slideshow.index') }}" class="nav-link">
+            <i class="far fa-images nav-icon"></i>
+            <p>Slideshow</p>
+          </a>
+        </li>
+      
+    </li>
+    <li class="nav-item">
+          <a href="{{ route('promo.index') }}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Promo</p>
+          </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route('wishlist.index') }}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Wishlist</p>
+        </a>
+      </li>
     <li class="nav-item">
       <a  href="#" 
           class="nav-link" 
@@ -103,6 +131,8 @@
         </p>
       </a>
     </li>
+
+
   </ul>
 </nav>
 

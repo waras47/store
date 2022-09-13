@@ -1,14 +1,14 @@
 @extends('layouts.dashboard')
 @section('content')
 <div class="container-fluid">
-  <!-- table kategori -->
+  <!-- table produk -->
   <div class="row">
     <div class="col">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Kategori Produk</h4>
+          <h4 class="card-title">Produk</h4>
           <div class="card-tools">
-            <a href="{{ route('kategori.create') }}" class="btn btn-sm btn-primary">
+            <a href="{{ route('promo.create') }}" class="btn btn-sm btn-primary">
               Baru
             </a>
           </div>
@@ -28,10 +28,15 @@
           </form>
         </div>
         <div class="card-body">
-        @if(count($errors) > 0)
-          @foreach($errors->all() as $error)
-              <div class="alert alert-warning">{{ $error }}</div>
-          @endforeach
+          @if ($message = Session::get('error'))
+              <div class="alert alert-warning">
+                  <p>{{ $message }}</p>
+              </div>
+          @endif
+          @if ($message = Session::get('success'))
+              <div class="alert alert-success">
+                  <p>{{ $message }}</p>
+              </div>
           @endif
           <div class="table-responsive">
             <table class="table table-bordered">
@@ -40,47 +45,45 @@
                   <th width="50px">No</th>
                   <th>Gambar</th>
                   <th>Kode</th>
+                  <th>Harga Awal</th>
                   <th>Nama</th>
-                  <th>Jumlah Produk</th>
-                  <th>Status</th>
+                  <th>Diskon</th>
+                  <th>Harga Akhir</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-              @foreach($itemkategori as $kategori)
+                @foreach($itempromo as $promo)
                 <tr>
                   <td>
                   {{ ++$no }}
                   </td>
                   <td>
-                    <img src="{{ asset('images/slide1.jpg') }}" alt="kategori 1" width='150px'>
-                    <div class="row mt-2">
-                      <div class="col">
-                        <input type="file" name="gambar" id="gambar">
-                      </div>
-                      <div class="col-auto">
-                        <button class="btn btn-sm btn-primary">Upload</button>
-                      </div>
-                    </div>
+                    @if($promo->produk->foto != null)
+                    <img src="{{ \Storage::url($promo->produk->foto) }}" alt="{{ $promo->produk->nama_produk }}" width='150px' class="img-thumbnail">
+                    @endif
                   </td>
                   <td>
-                  {{ $kategori->kode_kategori }}
+                  {{ $promo->produk->kode_produk }}
                   </td>
                   <td>
-                  {{ $kategori->nama_kategori }}
+                  {{ $promo->produk->nama_produk }}
                   </td>
                   <td>
-                  {{ count($kategori->produk) }} Produk
+                  {{ number_format($promo->harga_awal, 2) }}
                   </td>
                   <td>
-                  {{ $kategori->status }}
+                  {{ number_format($promo->diskon_nominal, 2) }} ({{ $promo->diskon_persen }}%)
                   </td>
                   <td>
-                    <a href="{{ route('kategori.edit', $kategori->id) }}" class="btn btn-sm btn-primary mr-2 mb-2">
+                  {{ number_format($promo->harga_akhir, 2) }}
+                  </td>
+                  <td>
+                    <a href="{{ route('promo.edit', $promo->id) }}" class="btn btn-sm btn-primary mr-2 mb-2">
                       Edit
                     </a>
-                    <form action="{{ route('kategori.destroy', $kategori->id) }}" method="post" style="display:inline;">
-                      {{csrf_field()}}
+                    <form action="{{ route('promo.destroy', $promo->id) }}" method="post" style="display:inline;">
+                      @csrf
                       {{ method_field('delete') }}
                       <button type="submit" class="btn btn-sm btn-danger mb-2">
                         Hapus
@@ -88,11 +91,10 @@
                     </form>
                   </td>
                 </tr>
-              @endforeach
+                @endforeach
               </tbody>
             </table>
-            <!-- untuk menampilkan link page, tambahkan skrip di bawah ini -->
-            {{ $itemkategori->links() }}
+            {{ $itempromo->links() }}
           </div>
         </div>
       </div>
